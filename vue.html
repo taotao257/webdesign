@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="app">
+        <p>{{ title }}</p>
+        <p>{{ content }}</p>
+        <p>{{ output() }}</p>
+        <p>{{ outputContent }}</p>
+
+        <p v-text="htmlContent"></p>
+        <p v-html="htmlContent"></p>
+
+        <p v-for="item in 5">this is content</p>
+        <p v-for="(item, key, index) in arr">this is content:{{ item }}{{ key }}{{ index }}</p>
+
+        <p v-bind:title="title">content</p>
+        <p :title="title">content</p>
+
+        <button v-on:click="output">click it</button>
+        <button @click="output">click it</button>
+
+        <input type="text" v-model="inputValue">
+        <p v-text="inputValue"></p>
+
+        <input type="text" v-model.trim="inputValue">
+
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        //const value ='This is content'
+        //document.getElementById('box').textContent = value
+        const vm = new Vue({
+            el: '#app',
+            data(){
+                return{
+                    title:'title',
+                    content:'content',
+                    htmlContent:'this is a <span>span</span> sticker',
+                    arr:['a','b','c','d'],
+                    obj: { a: 10, b: 20, c: 30},
+                    bool: true,
+                    inputValue: 'as content'
+                }
+            },
+            methods:{
+                output(){
+                    console.log('method terminate')
+                    return 'title:' + this.title + ',' + 'content:' + this.content
+                }                
+            },
+            computed:{
+                output(){
+                    console.log('computed terninate')
+                    return 'title:' + this.title + ',' + 'content:' + this.content
+                }
+            },
+            watch:{
+                title(newValue, oldValue){
+                    console.log(newValue, oldValue)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
