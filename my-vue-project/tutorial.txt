@@ -1,0 +1,9 @@
+cd my-vue-project
+npm run serve
+npm run build
+
+template script style
+
+
+
+
