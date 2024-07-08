@@ -1,3 +1,8 @@
+
+
+
+
+
 cd my-vue-project
 npm run serve
 npm run build
@@ -5,5 +10,17 @@ npm run build
 template script style
 
 
+videoinfo1 created
 
+//this.$router.push({ name: 'home' })
+
+setTimeout(() => {
+      this.$router.push({ name: 'video-info2', query: { someData: 'info1傳遞的數據' } })
+    }, 3000)
+
+
+console.log(this.$route.query)
+
+
+ 
 
